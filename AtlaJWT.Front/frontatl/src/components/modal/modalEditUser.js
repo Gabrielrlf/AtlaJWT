@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal, Button } from 'react-bootstrap';
 import { Input, Label } from "reactstrap";
-import req from "../../services/req";
 import { showModalSwal } from '../../shared/util'
+import req from "../../services/req";
 
 class ModalEditUser extends React.Component {
     state = {
@@ -12,8 +12,10 @@ class ModalEditUser extends React.Component {
         showModal: false
     }
 
+    //Método que faz a atualização do usuário
     updateUser = () => {
         const { age, userName, password } = this.state;
+
         const obj = {
             "id": this.props.user.id,
             "idUserInfo": this.props.user.idUserInfo,
@@ -30,8 +32,8 @@ class ModalEditUser extends React.Component {
                 showModalSwal("Usuário editado com sucesso", "success");
           }
           
-            console.log(x.data, 'X');
         }).catch(x => {
+            showModalSwal("Erro ao editar usuário", "error");
 
         })
     }
@@ -47,7 +49,6 @@ class ModalEditUser extends React.Component {
     }
 
     render() {
-        console.log(this.props.user, 'USER NO MODAL EDIT');
         return (<Modal show={this.props.showModalEdit} onHide={() => this.props.closeModalEdit()}>
             <Modal.Header closeButton>
                 <Modal.Title>Editar</Modal.Title>

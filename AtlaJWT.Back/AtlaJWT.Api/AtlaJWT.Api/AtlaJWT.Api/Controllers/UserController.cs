@@ -17,7 +17,7 @@ namespace AtlaJWT.Api.Controllers
 
         public UserController(IUserService userService) => _userService = userService;
 
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         [HttpGet, Route("GetAll")]
         public async Task<ActionResult<UserRegistered>> GetAllRegistered()
         {
@@ -83,7 +83,6 @@ namespace AtlaJWT.Api.Controllers
         {
             try
             {
-                userInfo.IsValid(userInfo);
                 var result = await _userService.Login(userInfo);
                 return Ok(result);
             }

@@ -8,21 +8,12 @@ import ModalEditUser from './modal/modalEditUser';
 import ModalInsertUser from './modal/modalInsertUser';
 import { showModalSwal, verifyUserIsAdmin } from '../shared/util'
 import '../style/style.css'
+import { selectColumnsTypesByRole } from '../shared/util'
 
-
-const columns =
-    [{
-        dataField: "id", text: "Id"
-    },
-    {
-        dataField: "name", text: "Nome"
-    },
-    {
-        dataField: "age", text: "Idade"
-    }]
-
-
+const JWT_Token = null;
+const Role = null;
 class ListPage extends React.Component {
+
     state = {
         showModal: false,
         userpick: [],
@@ -34,6 +25,8 @@ class ListPage extends React.Component {
 
     componentDidMount() {
         this.getUserRegistered();
+        this.JWT_Token = localStorage.getItem("JWT_Token");
+        this.Role = localStorage.getItem("Role");
     }
 
     componentWillUnmount() {
@@ -91,6 +84,7 @@ class ListPage extends React.Component {
             showModalInsert: !this.state.showModalInsert,
         }, this.getUserRegistered())
     }
+
     modalShow() {
         const { userpick } = this.state;
 
@@ -106,7 +100,7 @@ class ListPage extends React.Component {
                     <ul>
                         <ol>Id: {userpick.id} </ol>
                         <ol>Name: {userpick.name} </ol>
-                        <ol>Price: {userpick.age} </ol>
+                        <ol>Idade: {userpick.age} </ol>
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
@@ -123,18 +117,20 @@ class ListPage extends React.Component {
 
         const rowEvents =
         {
+
             onClick: (e, row) => {
-                this.setState({
-                    userpick: row,
-                    showModal: !this.state.showModal
-                })
+                this.Role === "Admin" ?
+                    this.setState({
+                        userpick: row,
+                        showModal: !this.state.showModal
+                    }) : this.setState()
             }
         }
 
         return (
             <div>
-                <Button variant="success" className="space-bottom" onClick={() => this.setState({ showModalInsert: !this.state.showModalInsert })}> Inserir </Button>
-                <Button variant="danger" className="space-bottom" onClick={() => Token.logout()}> Sair </Button>
+                {this.JWT_Token !== null && this.Role === "Admin" ? <Button variant="success" className="space-bottom" onClick={() => this.setState({ showModalInsert: !this.state.showModalInsert })}> Inserir </Button> : null}
+                {this.Role !== null ? <Button variant="danger" className="space-bottom" onClick={() => Token.logout()}> Sair </Button> : null}
                 {this.state.userpick !== [] ? <div>
                     <div className="grid-style">
                         <BootstrapTable
@@ -143,12 +139,12 @@ class ListPage extends React.Component {
                             className="grid-style"
                             keyField="id"
                             data={users}
-                            columns={columns}
+                            columns={selectColumnsTypesByRole()}
                             pagination={paginationFactory()}
                             rowEvents={rowEvents}>
                         </BootstrapTable>
                     </div>
-                </div> : console.log('teste')}
+                </div> : null}
 
                 {this.state.showModal ? this.modalShow() : null}
 

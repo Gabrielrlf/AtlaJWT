@@ -5,7 +5,6 @@ class Token {
     RegisterTokenJWT = (data) => {
         localStorage.setItem("JWT_Token", data.token);
         localStorage.setItem("Role", data.user.role);
-        console.log(data);
     }
 
     RemoveTokenJWT = () => {
@@ -13,12 +12,9 @@ class Token {
     }
 
     isAutenticate = () => {
-        if (localStorage.getItem("Role") === "Admin") {
+        if (localStorage.getItem("JWT_Token") !== null)
+        {
             window.location.href = "/list"
-        }
-        else if (localStorage.getItem("Role") === "User") {
-
-            window.location.href = "/user"
         }
     }
 

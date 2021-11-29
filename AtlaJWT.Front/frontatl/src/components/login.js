@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Label, Input } from 'reactstrap';
 import { showModalSwal, verifyIsNullOrEmpty } from '../shared/util'
-import { FaSignInAlt } from 'react-icons/fa';
+import { FaList, FaSignInAlt } from 'react-icons/fa';
 import req from '../services/req';
 import token from '../shared/token';
 import swal from 'sweetalert2';
-
+import "../style/style.css"
 
 class Login extends React.Component {
     state = {
@@ -14,7 +14,7 @@ class Login extends React.Component {
     }
 
     componentDidMount = () => {
-        token.isAutenticate();
+       token.isAutenticate();
 
     }
 
@@ -55,7 +55,7 @@ class Login extends React.Component {
         return (
             <div>
                 <h2>Login - Acesso ao sistema</h2>
-                <Label>User</Label>
+                <Label>Usuário</Label>
                 <Input type="text"
                     id="user"
                     name="user"
@@ -75,8 +75,8 @@ class Login extends React.Component {
                     onChange={(e) => this.setState({ password: e.target.value })}
                     required={true}
                 />
-                <Button variant="secondary" onClick={() => this.login()}><FaSignInAlt /> Login</Button>
-
+                <Button variant="secondary" onClick={() => this.login()} className="space-bottom space-top"><FaSignInAlt /> Login</Button>
+                <Button variant="secondary" onClick={() => window.location.href = "/list"} className="space-bottom space-top"><FaList /> Lista</Button>
             </div>
         )
     }

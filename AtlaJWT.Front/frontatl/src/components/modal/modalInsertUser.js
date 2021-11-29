@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap';
 import { Label, Input } from 'reactstrap';
-import req from '../../services/req';
 import { showModalSwal } from '../../shared/util'
+import req from '../../services/req';
 
 class ModalInsertUser extends React.Component {
     state = {
@@ -11,6 +11,7 @@ class ModalInsertUser extends React.Component {
         age: ""
     }
 
+    ///Método que faz a inserção do usuário.
     insertUser = () =>
     {
         const { name, password, age} = this.state;
