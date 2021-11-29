@@ -20,8 +20,6 @@ class Token {
 
             window.location.href = "/user"
         }
-
-
     }
 
     isAdminOrUser = () => {
@@ -39,4 +37,4 @@ class Token {
     }
 }
     
-export default new Token()
+export default new Token();

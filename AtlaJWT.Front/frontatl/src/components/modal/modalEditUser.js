@@ -64,7 +64,7 @@ class ModalEditUser extends React.Component {
 
                 <Label>Nova idade</Label>
                 <Input
-                    type="numeric"
+                    type="number"
                     id="idade"
                     name="idadde"
                     placeholder="idade"

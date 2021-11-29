@@ -1,4 +1,11 @@
 .grid-style {
-    background-color: aliceblue;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
+    margin-top: 1em;
+}
+
+.space-bottom {
+    margin: 0 15px;
 }

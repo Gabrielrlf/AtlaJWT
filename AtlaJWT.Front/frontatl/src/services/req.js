@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 const url = "https://localhost:44382/";
+const JWT_Token = localStorage.getItem("JWT_Token");
+
 class Req {
 
     login = (obj) => {
@@ -15,11 +17,10 @@ class Req {
     }
 
     getAllUser = () => {
-
         return axios.get(`${url}api/User/GetAll`, {
             headers: {
                 'Content-Type': "application/json",
-                'Authorization': 'Bearer ' + localStorage.getItem("JWT_Token")
+                'Authorization': 'Bearer ' + JWT_Token
             },
         })
     }
@@ -31,7 +32,20 @@ class Req {
             data: JSON.stringify(obj),
             headers: {
                 'Content-Type': "application/json",
-                'Authorization': 'Bearer ' + localStorage.getItem("JWT_Token")
+                'Authorization': 'Bearer ' + JWT_Token
+            }
+        })
+    }
+
+    createUserRegistered = (obj) => 
+    {
+        return axios({
+            method: 'post',
+            url: `${url}api/User/Create`,
+            data: JSON.stringify(obj),
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': 'Bearer ' + JWT_Token
             }
         })
     }

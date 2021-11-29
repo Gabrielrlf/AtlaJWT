@@ -5,6 +5,8 @@ import { Modal, Button } from 'react-bootstrap';
 import req from '../services/req';
 import Token from '../shared/token'
 import ModalEditUser from './modal/modalEditUser';
+import ModalInsertUser from './modal/modalInsertUser';
+import '../style/style.css'
 
 
 const columns =
@@ -25,7 +27,8 @@ class ListPage extends React.Component {
         userpick: [],
         users: [],
         show: false,
-        showModalEdit: false
+        showModalEdit: false,
+        showModalInsert: false
     }
 
     componentDidMount() {
@@ -47,6 +50,7 @@ class ListPage extends React.Component {
 
     componentWillUnmount() {
         this.setState({
+            showModalEdit: false,
             showModal: false,
             userpick: [],
             users: [],
@@ -61,6 +65,12 @@ class ListPage extends React.Component {
         }, this.getUserRegistered())
     }
 
+
+    closeModalInsert = () => {
+        this.setState({
+            showModalInsert: !this.state.showModalInsert,
+        }, this.getUserRegistered())
+    }
     modalShow() {
         const { userpick } = this.state;
 
@@ -103,22 +113,28 @@ class ListPage extends React.Component {
 
         return (
             <div>
-                <Button variant="success"> Inserir </Button>
-                <Button variant="danger" onClick={() => Token.logout()}> Sair </Button>
+                <Button variant="success" className="space-bottom" onClick={() => this.setState({ showModalInsert: !this.state.showModalInsert })}> Inserir </Button>
+                <Button variant="danger" className="space-bottom" onClick={() => Token.logout()}> Sair </Button>
                 {this.state.userpick !== [] ? <div>
-                    <BootstrapTable
-                        className="grid-style"
-                        keyField="id"
-                        data={users}
-                        columns={columns}
-                        pagination={paginationFactory()}
-                        rowEvents={rowEvents}>
-                    </BootstrapTable>
+                    <div className="grid-style">
+                        <BootstrapTable
+
+                            rowStyle={{ backgroundColor: 'grey' }}
+                            className="grid-style"
+                            keyField="id"
+                            data={users}
+                            columns={columns}
+                            pagination={paginationFactory()}
+                            rowEvents={rowEvents}>
+                        </BootstrapTable>
+                    </div>
                 </div> : console.log('teste')}
 
                 {this.state.showModal ? this.modalShow() : null}
 
                 {this.state.showModal ? <ModalEditUser closeModalEdit={() => this.closeModalEdit()} user={this.state.userpick} showModalEdit={this.state.showModalEdit} /> : null}
+
+                {this.state.showModalInsert ? <ModalInsertUser closeModalInsert={() => this.closeModalInsert()} showModalInsert={this.state.showModalInsert} /> : null}
             </div>
         )
     }
