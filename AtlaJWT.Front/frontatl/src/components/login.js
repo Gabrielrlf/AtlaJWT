@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Label, Input } from 'reactstrap';
-
+import { showModalSwal, verifyIsNullOrEmpty } from '../shared/util'
 import { FaSignInAlt } from 'react-icons/fa';
 import req from '../services/req';
 import token from '../shared/token';
@@ -21,6 +21,12 @@ class Login extends React.Component {
     login = () => {
         const { userName, password } = this.state;
 
+        if(verifyIsNullOrEmpty(userName, password)) 
+        {
+            showModalSwal("O campo usuário ou senha está em branco!", "warning")
+            return;
+        }
+
         const obj = {
             "UserName": userName,
             "Password": password
@@ -30,6 +36,7 @@ class Login extends React.Component {
 
             if (result.status === 200) {
                 token.RegisterTokenJWT(result.data)
+                token.isAutenticate();
             }
 
             this.showModalSwal("Bem-vindo", "success")
@@ -55,6 +62,7 @@ class Login extends React.Component {
                     placeholder="Usuário"
                     value={this.state.userName}
                     onChange={(e) => this.setState({ userName: e.target.value })}
+                    required={true}
                 />
 
                 <Label>Senha</Label>
@@ -65,6 +73,7 @@ class Login extends React.Component {
                     placeholder="Senha"
                     value={this.state.password}
                     onChange={(e) => this.setState({ password: e.target.value })}
+                    required={true}
                 />
                 <Button variant="secondary" onClick={() => this.login()}><FaSignInAlt /> Login</Button>
 

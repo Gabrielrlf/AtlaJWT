@@ -13,16 +13,17 @@ class Token {
     }
 
     isAutenticate = () => {
-        if (localStorage.getItem("Role") == "Admin") {
+        if (localStorage.getItem("Role") === "Admin") {
             window.location.href = "/list"
         }
-        else if (localStorage.getItem("Role") == "User") {
+        else if (localStorage.getItem("Role") === "User") {
 
             window.location.href = "/user"
         }
     }
 
     isAdminOrUser = () => {
+        debugger
         if (localStorage.getItem("Role") === "Admin")
             return true;
 
@@ -36,5 +37,5 @@ class Token {
 
     }
 }
-    
+
 export default new Token();

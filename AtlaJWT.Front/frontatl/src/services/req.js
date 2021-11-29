@@ -49,6 +49,17 @@ class Req {
             }
         })
     }
+
+    removeUserRegistered = (id) => {
+        return axios({
+            method: 'post',
+            url: `${url}api/User/Remove/${id}`,
+            headers: {
+                'Content-Type': "application/json",
+                'Authorization': 'Bearer ' + JWT_Token
+            }
+        })
+    }
 }
 
 export default new Req();

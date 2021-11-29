@@ -7,3 +7,13 @@ export function showModalSwal(message, type) {
         title: message
     });
 }
+
+export function verifyIsNullOrEmpty(user, password) 
+{
+    if(user === "" || password === "")
+    {
+        return true;
+    }
+
+    return false;
+}

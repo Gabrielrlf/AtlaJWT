@@ -6,6 +6,7 @@ import req from '../services/req';
 import Token from '../shared/token'
 import ModalEditUser from './modal/modalEditUser';
 import ModalInsertUser from './modal/modalInsertUser';
+import { showModalSwal, verifyUserIsAdmin } from '../shared/util'
 import '../style/style.css'
 
 
@@ -35,6 +36,16 @@ class ListPage extends React.Component {
         this.getUserRegistered();
     }
 
+    componentWillUnmount() {
+        this.setState({
+            showModalEdit: false,
+            showModal: false,
+            userpick: [],
+            users: [],
+            show: false
+        })
+    }
+
     getUserRegistered = () => {
         req.getAllUser().then(res => {
             const { users } = res.data
@@ -48,14 +59,23 @@ class ListPage extends React.Component {
         })
     }
 
-    componentWillUnmount() {
-        this.setState({
-            showModalEdit: false,
-            showModal: false,
-            userpick: [],
-            users: [],
-            show: false
-        })
+
+    removeUser = () => {
+        const { id } = this.state.userpick;
+
+        req.removeUserRegistered(id).
+            then(x => {
+                const { status, data } = x;
+                if (status === 200) {
+                    this.setState({
+                        userpick: []
+                    }, this.closeModalEdit())
+                    showModalSwal('Usuário deletado!', "success");
+                }
+            }).
+            catch(x => {
+                showModalSwal("Erro, tente novamente", "success")
+            })
     }
 
     closeModalEdit = () => {
@@ -91,7 +111,7 @@ class ListPage extends React.Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={() => this.setState({ showModalEdit: !this.state.showModalEdit })}>Editar</Button>
-                    <Button variant="danger">Deletar</Button>
+                    <Button variant="danger" onClick={() => this.removeUser()}>Deletar</Button>
                 </Modal.Footer>
             </Modal>
         )
