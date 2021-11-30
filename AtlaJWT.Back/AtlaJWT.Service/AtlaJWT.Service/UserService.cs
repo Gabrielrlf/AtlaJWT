@@ -47,18 +47,35 @@ namespace AtlaJWT.Service
             }
         }
 
+        public bool GetUserByUserInfoName(string userName)
+        {
+            if (_userRepository.GetUserByUserName(userName) != null)
+                return true;
+
+            return false;
+        }
+
         public Task<bool> RemoveUser(int id) => _userRepository.RemoveUser(id);
 
-        public Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered)
+        public Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered, UserInfo oldUser)
         {
-        //    userRegistered.Password = _userInfoFactoryMethod.EncryptPassword(userRegistered.Password);
-            var oldUser = _userRepository.GetUserInfoById(userRegistered.IdUserInfo);
             var result = _userRepository.UpdateUserRegistered(userRegistered);
+
+            return Task.FromResult(result);
+        }
+
+
+        public Task<UserInfo> UpdateUserInfo(UserRegistered userRegistered)
+        {
+            if (GetUserByUserInfoName(userRegistered.Name))
+                throw new UserException("Nome de usuário já existente!");
+
+            var oldUser = _userRepository.GetUserInfoById(userRegistered.IdUserInfo);
             UpdatePropertyUserInfo(oldUser, userRegistered);
 
             _userRepository.UpdateUserInfo(oldUser);
 
-            return Task.FromResult(result);
+            return Task.FromResult(oldUser);
         }
 
         public Task<UserToken> Login(UserInfo userInfo)
@@ -86,21 +103,25 @@ namespace AtlaJWT.Service
             if (_userInfoFactoryMethod.ValidatingUserName(userRegistered.Name))
                 throw new UserException("Nome de usuário inválido!");
 
-            userRegistered.Password = _userInfoFactoryMethod.EncryptPassword(userRegistered.Password);
+            _userRepository.SaveUserRegistered(userRegistered);
+            userRegistered.Password = string.Empty;
 
+            return Task.FromResult(userRegistered);
+        }
+
+        public Task<UserInfo> CreateUserInfo(UserRegistered userRegistered)
+        {
             var userInfo = _userInfoFactoryMethod.MakeUserInfo(userRegistered);
-            var userExisting = _userRepository.GetUser(userInfo);
 
-            if (userExisting != null)
+            if (_userRepository.GetUserByUserName(userInfo.UserName) != null)
                 throw new UserException("Usuário já cadastrado na base!");
 
             var user = _userRepository.SaveUser(userInfo);
 
             userRegistered.IdUserInfo = user.Id;
-            _userRepository.SaveUserRegistered(userRegistered);
-            userRegistered.Password = string.Empty;
+            userRegistered.Password = user.Password;
 
-            return Task.FromResult(userRegistered);
+            return Task.FromResult(user);
         }
 
         private string GenerateToken(UserInfo user)
@@ -123,11 +144,7 @@ namespace AtlaJWT.Service
             return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDesc));
         }
 
-        private UserInfo UpdatePropertyUserInfo(UserInfo userInfo, UserRegistered userRegistered)
-        {
-            userInfo.UserName = userRegistered.Name;
-        //    userInfo.Password = userRegistered.Password;
-            return userInfo;
-        }
+        private void UpdatePropertyUserInfo(UserInfo userInfo, UserRegistered userRegistered) => userInfo.UserName = userRegistered.Name;
+
     }
 }

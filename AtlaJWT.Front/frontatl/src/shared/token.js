@@ -2,9 +2,10 @@ const JWT_Token = localStorage.getItem("JWT_Token");
 
 class Token {
 
-    RegisterTokenJWT = (data) => {
+    RegisterUserStorage = (data) => {
         localStorage.setItem("JWT_Token", data.token);
         localStorage.setItem("Role", data.user.role);
+        localStorage.setItem("ID", data.user.id);
     }
 
     RemoveTokenJWT = () => {
@@ -29,6 +30,7 @@ class Token {
     logout = () => {
         localStorage.removeItem("JWT_Token");
         localStorage.removeItem("Role");
+        localStorage.removeItem("ID");
         window.location.href = "/";
 
     }

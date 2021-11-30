@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Api", "AtlaJWT.Api\AtlaJWT.Api.csproj", "{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Api", "AtlaJWT.Api\AtlaJWT.Api.csproj", "{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Infra", "..\..\AtlaJWT.Infra\AtlaJWT.Infra\AtlaJWT.Infra.csproj", "{88BFF040-D679-4A21-B26D-7FF8138B770E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Infra", "..\..\AtlaJWT.Infra\AtlaJWT.Infra\AtlaJWT.Infra.csproj", "{88BFF040-D679-4A21-B26D-7FF8138B770E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Domain", "..\..\AtlaJWT.Domain\AtlaJWT.Domain\AtlaJWT.Domain.csproj", "{1FCE90A0-6079-4C5B-A789-3E2C6527A855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Domain", "..\..\AtlaJWT.Domain\AtlaJWT.Domain\AtlaJWT.Domain.csproj", "{1FCE90A0-6079-4C5B-A789-3E2C6527A855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Service", "..\..\AtlaJWT.Service\AtlaJWT.Service\AtlaJWT.Service.csproj", "{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Service", "..\..\AtlaJWT.Service\AtlaJWT.Service\AtlaJWT.Service.csproj", "{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Tests", "..\..\AtlaJWT.Tests\AtlaJWT.Tests\AtlaJWT.Tests.csproj", "{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

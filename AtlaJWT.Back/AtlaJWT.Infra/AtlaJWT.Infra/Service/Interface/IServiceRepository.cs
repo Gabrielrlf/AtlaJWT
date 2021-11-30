@@ -13,7 +13,8 @@ namespace AtlaJWT.Infra.Service.Interface
         void Create(T obj);
         void Update(T obj);
         void Delete(T obj);
-        T FindByUserName(string userName, string password);
+        T FindByUserNameAndPassword(string userName, string password);
+        T FindByUserName(string userName);
         T FindById(int? id);
 
     }

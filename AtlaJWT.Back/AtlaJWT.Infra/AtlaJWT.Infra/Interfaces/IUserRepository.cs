@@ -24,6 +24,8 @@ namespace AtlaJWT.Infra.Interfaces
 
         UserInfo GetUserInfoById(int id);
 
+        UserInfo GetUserByUserName(string userName);
+
 
     }
 }

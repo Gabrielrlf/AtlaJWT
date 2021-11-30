@@ -9,9 +9,11 @@ namespace AtlaJWT.Service.Interfaces
     {
         Task<UserToken> Login(UserInfo userInfo);
         Task<UserRegistered> CreateUserRegistered(UserRegistered userRegistered);
+        Task<UserInfo> CreateUserInfo(UserRegistered userRegistered);
         Task<IQueryable<UserRegistered>> GetAllUserRegistered();
 
         Task<bool> RemoveUser(int id);
-        Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered);
+        Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered, UserInfo userInfo);
+        Task<UserInfo> UpdateUserInfo(UserRegistered userRegistered);
     }
 }

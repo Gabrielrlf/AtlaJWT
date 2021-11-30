@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtlaJWT.Tests</name>
+    </assembly>
+    <members>
+        <member name="M:AtlaJWT.Tests.Generator.UserInfoGenerator.GetDataUserInfoPass">
+            <summary>
+            Deve retornar usuário falho
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtlaJWT.Tests.Generator.UserRegisteredGenerator.GetDataUserRegisteredPass">
+            <summary>
+            Retorna objetos do UserRegistered
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtlaJWT.Tests.Generator.UserRegisteredGenerator.GetDataUserRegisteredFailed">
+            <summary>
+            Deve retornar usuário falho
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.ShouldReturnErrorByNameInvalid">
+            <summary>
+            Deve retornar erro caso a string seja nulo/em branco.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.Should_ThrowException_EncryptPassword(AtlaJWT.Domain.Entities.UserRegistered)">
+            <summary>
+            Deve retornar uma exception ao tentar encriptar a senha
+            </summary>
+            <param name="userRegistered"></param>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.Post_CreateNewUserInfo(AtlaJWT.Domain.Entities.UserRegistered)">
+            <summary>
+            Deve retornar um objeto do tipo UserInfo.
+            </summary>
+            <param name="userRegistered"></param>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegiserNewUser(AtlaJWT.Domain.Entities.UserRegistered)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_LoginUser(AtlaJWT.Domain.Entities.UserInfo)">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

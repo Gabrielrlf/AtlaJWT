@@ -26,11 +26,12 @@ namespace AtlaJWT.Infra.Service
 
         public void Dispose() => dbContext.Dispose();
         public T FindById(int? id) => dbContext.Find<T>(id);
-        public T FindByUserName(string userName, string password)
+        public T FindByUserNameAndPassword(string userName, string password)
         {
            return dbContext.Find<T>(userName, password);
         }
 
+        public T FindByUserName(string userName) => dbContext.Find<T>(userName);
         public IQueryable<T> List() => dbContext.Set<T>();
 
         public void Update(T obj)

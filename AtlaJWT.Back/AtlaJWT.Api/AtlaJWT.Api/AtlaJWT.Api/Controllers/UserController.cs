@@ -53,6 +53,7 @@ namespace AtlaJWT.Api.Controllers
         {
             try
             {
+                await _userService.CreateUserInfo(userRegistered);
                 var result = await _userService.CreateUserRegistered(userRegistered);
                 return Ok(result);
             }
@@ -62,13 +63,14 @@ namespace AtlaJWT.Api.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         [HttpPost("Update")]
         public async Task<ActionResult<UserToken>> UpdateRegister([FromBody] UserRegistered userRegistered)
         {
             try
             {
-                var result = await _userService.UpdateUserRegistered(userRegistered);
+                var userInfo = await _userService.UpdateUserInfo(userRegistered);
+                var result = await _userService.UpdateUserRegistered(userRegistered, userInfo);
                 return Ok(result);
             }
             catch (Exception e)

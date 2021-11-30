@@ -10,7 +10,6 @@ namespace AtlaJWT.Domain.Entities
     {
         public UserInfo()
         {
-        //    IsValid(this);
         }
 
         public UserInfo(UserInfo userInfo) => IsValid(userInfo);
@@ -22,6 +21,9 @@ namespace AtlaJWT.Domain.Entities
         {
             if (this.UserName == null)
                 throw new UserException("Usuário ou senha inválido!");
+
+            if (this.Password == "" || this.Password == null)
+                throw new UserException("Não é possível salvar uma senha nula ou em branco!");
         }
     }
 }

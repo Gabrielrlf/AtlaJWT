@@ -60,8 +60,10 @@ class ListPage extends React.Component {
             then(x => {
                 const { status, data } = x;
                 if (status === 200) {
-                    this.setState({
-                        userpick: []
+                    this.setState(
+                    {
+                        userpick: [],
+                        showModalEdit: false
                     }, this.closeModalEdit())
                     showModalSwal('Usuário deletado!', "success");
                 }
@@ -114,12 +116,13 @@ class ListPage extends React.Component {
 
     render() {
         const { users } = this.state;
+        const id = localStorage.getItem("ID");
 
         const rowEvents =
         {
 
             onClick: (e, row) => {
-                this.Role === "Admin" ?
+                this.Role === "Admin" || id == row.idUserInfo ?
                     this.setState({
                         userpick: row,
                         showModal: !this.state.showModal

@@ -43,6 +43,21 @@ namespace AtlaJWT.Infra.Repositories
             }
         }
 
+        public UserInfo GetUserByUserName(string userName)
+        {
+            try
+            {
+                using (ServiceRepository<UserInfo> req = new ServiceRepository<UserInfo>())
+                {
+                    return req.List().Where(x => x.UserName == userName).FirstOrDefault();
+                }
+            }
+            catch (SqliteException ex)
+            {
+                throw ex;
+            }
+        }
+
         public UserInfo GetUserInfoById(int id)
         {
             try

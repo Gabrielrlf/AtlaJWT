@@ -35,7 +35,7 @@ class Login extends React.Component {
         req.login(obj).then(result => {
 
             if (result.status === 200) {
-                token.RegisterTokenJWT(result.data)
+                token.RegisterUserStorage(result.data)
                 token.isAutenticate();
             }
 

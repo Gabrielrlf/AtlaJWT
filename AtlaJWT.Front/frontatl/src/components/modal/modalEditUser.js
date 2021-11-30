@@ -34,6 +34,7 @@ class ModalEditUser extends React.Component {
           
         }).catch(x => {
             showModalSwal("Erro ao editar usuário", "error");
+            this.props.closeModalEdit();
 
         })
     }
