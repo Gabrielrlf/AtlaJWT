@@ -30,6 +30,6 @@ namespace AtlaJWT.Domain.Factory
             return Convert.ToBase64String(encod);
         }
 
-        protected override bool ValidateName(string name) => name.Equals("") || name.Length <= 3 ? true : false;
+        protected override bool ValidateName(string name) => name.Equals("") || name.Length <= 3  ? true : false;
     }
 }

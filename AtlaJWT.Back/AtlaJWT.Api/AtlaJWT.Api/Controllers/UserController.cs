@@ -53,6 +53,7 @@ namespace AtlaJWT.Api.Controllers
         {
             try
             {
+                _userService.ValidateUserName(userRegistered.Name);
                 await _userService.CreateUserInfo(userRegistered);
                 var result = await _userService.CreateUserRegistered(userRegistered);
                 return Ok(result);
@@ -69,6 +70,7 @@ namespace AtlaJWT.Api.Controllers
         {
             try
             {
+                _userService.ValidateUserName(userRegistered.Name);
                 var userInfo = await _userService.UpdateUserInfo(userRegistered);
                 var result = await _userService.UpdateUserRegistered(userRegistered, userInfo);
                 return Ok(result);

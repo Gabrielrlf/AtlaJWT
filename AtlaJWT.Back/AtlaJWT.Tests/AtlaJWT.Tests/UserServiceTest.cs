@@ -30,8 +30,8 @@ namespace AtlaJWT.Tests
         {
             _configuration = new ConfigurationBuilder().AddInMemoryCollection
                 (new Dictionary<string, string>()
-                { 
-                    { "JWT:key", "984932487328979d_@879r78273897f.928913@" } 
+                {
+                    { "JWT:key", "984932487328979d_@879r78273897f.928913@" }
                 }).Build();
             _userInfoFactoryMethod = new UserInfoFactory();
             _userRepository = new Mock<IUserRepository>();
@@ -71,6 +71,17 @@ namespace AtlaJWT.Tests
             Assert.IsType<UserException>(result.Result);
         }
 
+        /// <summary>
+        /// Deve retornar erro por conta do nome pequeno demais ou nulo | Regra: menor igual a 3 ou em branco ou nulo retorna exceção.
+        /// </summary>
+        /// <param name="name"></param>
+        [Theory]
+        [InlineData("ttt")]
+        [InlineData("")]
+        public void Post_RegisterNewUser_ShouldReturnExceptionBySmallUserName(string name)
+        {
+            Assert.Throws<UserException>(() => _userService.ValidateUserName(name));
+        }
 
         /// <summary>
         /// Deve retornar um usuário do tipo UserInfo ao registar.
@@ -100,7 +111,7 @@ namespace AtlaJWT.Tests
         }
 
         /// <summary>
-        /// 
+        /// Deve retornar uma exceção por informações erradas de login.
         /// </summary>
         [Theory]
         [MemberData(nameof(UserInfoGenerator.GetDataUserInfoFail), MemberType = typeof(UserInfoGenerator))]

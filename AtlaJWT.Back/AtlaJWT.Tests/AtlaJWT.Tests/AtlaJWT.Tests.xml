@@ -73,6 +73,12 @@
             <paramref name="userRegistered"/>
             </summary>
         </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegisterNewUser_ShouldReturnExceptionBySmallUserName(System.String)">
+            <summary>
+            Deve retornar erro por conta do nome pequeno demais ou nulo | Regra: menor igual a 3 ou em branco ou nulo retorna exceção.
+            </summary>
+            <param name="name"></param>
+        </member>
         <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegisterNewUser_ShouldReturnUserInfoType(AtlaJWT.Domain.Entities.UserRegistered)">
             <summary>
             Deve retornar um usuário do tipo UserInfo ao registar.
@@ -87,7 +93,7 @@
         </member>
         <member name="M:AtlaJWT.Tests.UserServiceTest.Post_Login_ShouldReturnException(AtlaJWT.Domain.Entities.UserInfo)">
             <summary>
-            
+            Deve retornar uma exceção por informações erradas de login.
             </summary>
         </member>
     </members>

@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\AtlaJWT.Domain\AtlaJWT.Domain\AtlaJWT.Domain.csproj" />
-    <ProjectReference Include="..\..\..\AtlaJWT.Infra\AtlaJWT.Infra\AtlaJWT.Infra.csproj" />
-    <ProjectReference Include="..\..\..\AtlaJWT.Service\AtlaJWT.Service\AtlaJWT.Service.csproj" />
+    <ProjectReference Include="..\..\AtlaJWT.Domain\AtlaJWT.Domain\AtlaJWT.Domain.csproj" />
+    <ProjectReference Include="..\..\AtlaJWT.Infra\AtlaJWT.Infra\AtlaJWT.Infra.csproj" />
+    <ProjectReference Include="..\..\AtlaJWT.Service\AtlaJWT.Service\AtlaJWT.Service.csproj" />
   </ItemGroup>
 
 </Project>

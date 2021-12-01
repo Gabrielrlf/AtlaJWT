@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap';
 import { Label, Input } from 'reactstrap';
-import { showModalSwal } from '../../shared/util'
+import { showModalSwal, validateFields } from '../../shared/util'
 import req from '../../services/req';
 
 class ModalInsertUser extends React.Component {
@@ -15,6 +15,12 @@ class ModalInsertUser extends React.Component {
     insertUser = () =>
     {
         const { name, password, age} = this.state;
+        
+        if(validateFields(name, age, password))
+        {
+            return;
+        }
+            
         const obj = {
             name, 
             password,

@@ -33,6 +33,17 @@ export function showModalSwal(message, type) {
     });
 }
 
+export function validateFields(name, age, password)
+{
+    if(name === "" || password === "" || age === "")
+    {
+        showModalSwal("Não deixe nada em branco", "warning" )
+        return true;
+    }
+
+    return false;
+}
+
 export function selectColumnsTypesByRole() {
     if (localStorage.getItem("Role") === "Admin") {
         return columns[0]

@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from 'react-bootstrap';
 import { Input, Label } from "reactstrap";
-import { showModalSwal } from '../../shared/util'
+import { showModalSwal, validateFields } from '../../shared/util'
 import req from "../../services/req";
 
 class ModalEditUser extends React.Component {
@@ -15,6 +15,11 @@ class ModalEditUser extends React.Component {
     //Método que faz a atualização do usuário
     updateUser = () => {
         const { age, userName, password } = this.state;
+
+        if(validateFields(userName, age, null))
+        {
+            return;
+        }
 
         const obj = {
             "id": this.props.user.id,

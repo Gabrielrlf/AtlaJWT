@@ -98,10 +98,6 @@ namespace AtlaJWT.Service
 
         public Task<UserRegistered> CreateUserRegistered(UserRegistered userRegistered)
         {
-
-            if (_userInfoFactoryMethod.ValidatingUserName(userRegistered.Name))
-                throw new UserException("Nome de usuário inválido!");
-
             _userRepository.SaveUserRegistered(userRegistered);
             userRegistered.Password = string.Empty;
 
@@ -145,5 +141,10 @@ namespace AtlaJWT.Service
 
         private void UpdatePropertyUserInfo(UserInfo userInfo, UserRegistered userRegistered) => userInfo.UserName = userRegistered.Name;
 
+        public void ValidateUserName(string name)
+        {
+            if (_userInfoFactoryMethod.ValidatingUserName(name))
+                throw new UserException("Nome de usuário inválido ou pequeno demais!");
+        }
     }
 }

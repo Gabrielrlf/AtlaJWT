@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Api", "AtlaJWT.Api\AtlaJWT.Api.csproj", "{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Infra", "..\..\AtlaJWT.Infra\AtlaJWT.Infra\AtlaJWT.Infra.csproj", "{88BFF040-D679-4A21-B26D-7FF8138B770E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Domain", "..\..\AtlaJWT.Domain\AtlaJWT.Domain\AtlaJWT.Domain.csproj", "{1FCE90A0-6079-4C5B-A789-3E2C6527A855}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Service", "..\..\At
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Tests", "..\..\AtlaJWT.Tests\AtlaJWT.Tests\AtlaJWT.Tests.csproj", "{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Api", "AtlaJWT.Api.csproj", "{73EAE04F-F76D-4E69-8994-7DB1FEA38572}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{237C3FE7-1E0A-490A-BB79-B27B827ED1D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88BFF040-D679-4A21-B26D-7FF8138B770E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88BFF040-D679-4A21-B26D-7FF8138B770E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88BFF040-D679-4A21-B26D-7FF8138B770E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73EAE04F-F76D-4E69-8994-7DB1FEA38572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73EAE04F-F76D-4E69-8994-7DB1FEA38572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73EAE04F-F76D-4E69-8994-7DB1FEA38572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73EAE04F-F76D-4E69-8994-7DB1FEA38572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
