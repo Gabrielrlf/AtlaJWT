@@ -28,6 +28,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:AtlaJWT.Tests.UserInfoCreatorTest">
+            <summary>
+            Classe para testar os métodos do Creator.
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.#ctor">
+            <summary>
+            Moco o _userService para não fazer a requisição ao banco e testar somente as validações.
+            </summary>
+        </member>
         <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.ShouldReturnErrorByNameInvalid">
             <summary>
             Deve retornar erro caso a string seja nulo/em branco.
@@ -69,9 +79,9 @@
             <paramref name="userRegistered"/>
             </summary>
         </member>
-        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_Update_ShouldReturnUserInfoType(AtlaJWT.Domain.Entities.UserRegistered)">
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Put_Update_ShouldReturnUserInfoType(AtlaJWT.Domain.Entities.UserRegistered)">
             <summary>
-            
+            Retorna um userInfo 
             </summary>
             <param name="userRegistered"></param> 
         </member>
