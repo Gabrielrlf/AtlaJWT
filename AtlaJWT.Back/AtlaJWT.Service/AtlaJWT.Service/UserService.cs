@@ -47,7 +47,7 @@ namespace AtlaJWT.Service
             }
         }
 
-        public bool GetUserByUserInfoName(string userName)
+        public bool IsExistingUserName(string userName)
         {
             if (_userRepository.GetUserByUserName(userName) != null)
                 return true;
@@ -66,7 +66,7 @@ namespace AtlaJWT.Service
 
         public Task<UserInfo> UpdateUserInfo(UserRegistered userRegistered)
         {
-            if (GetUserByUserInfoName(userRegistered.Name))
+            if (IsExistingUserName(userRegistered.Name))
                 throw new UserException("Nome de usuário já existente!");
 
             var oldUser = _userRepository.GetUserInfoById(userRegistered.IdUserInfo);

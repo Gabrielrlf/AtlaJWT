@@ -7,14 +7,14 @@ using System;
 namespace AtlaJWT.Infra
 {
     public class AppDbContext : IdentityDbContext
-    {   
+    {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
     => options.UseSqlite(@"Data Source=Atlantico.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<UserRegistered>(entityTypeBuilder =>
             {
@@ -24,7 +24,6 @@ namespace AtlaJWT.Infra
             modelBuilder.Entity<UserInfo>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("UserInfo");
-            });
-        }
+            });        }
     }
 }

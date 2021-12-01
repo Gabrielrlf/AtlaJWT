@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Domain", "..\..\Atl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Service", "..\..\AtlaJWT.Service\AtlaJWT.Service\AtlaJWT.Service.csproj", "{5EC142FF-34FB-41C2-B1BE-A731F08E7EEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlaJWT.Tests", "..\..\AtlaJWT.Tests\AtlaJWT.Tests\AtlaJWT.Tests.csproj", "{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtlaJWT.Tests", "..\..\AtlaJWT.Tests\AtlaJWT.Tests\AtlaJWT.Tests.csproj", "{9F50F09B-1C2D-40BA-B1FD-F182A9F9434D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

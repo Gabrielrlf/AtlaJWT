@@ -12,10 +12,16 @@ using Xunit;
 
 namespace AtlaJWT.Tests
 {
+    /// <summary>
+    /// Classe para testar os métodos do Creator.
+    /// </summary>
     public class UserInfoCreatorTest
     {
         private UserService _userService;
         private UserInfoFactoryMethod _userInfoFactoryMethod;
+       /// <summary>
+       /// Moco o _userService para não fazer a requisição ao banco e testar somente as validações.
+       /// </summary>
         public UserInfoCreatorTest()
         {
             _userInfoFactoryMethod = new UserInfoFactory();
