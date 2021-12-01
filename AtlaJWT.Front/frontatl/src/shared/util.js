@@ -7,14 +7,14 @@ const columns =
         dataField: "id", text: "Id"
     },
     {
-        dataField: "name", text: "Nome"
+        dataField: "userName", text: "Nome"
     },
     {
         dataField: "age", text: "Idade"
     }],
     [
         {
-            dataField: "name", text: "Nome"
+            dataField: "userName", text: "Nome"
         },
         {
             dataField: "age", text: "Idade"
@@ -22,7 +22,7 @@ const columns =
     ],
     [
         {
-            dataField: "name", text: "Nome"
+            dataField: "userName", text: "Nome"
         }
     ]]
 

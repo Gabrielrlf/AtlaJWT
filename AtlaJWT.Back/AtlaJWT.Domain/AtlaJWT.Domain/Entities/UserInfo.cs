@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AtlaJWT.Domain.Entities
@@ -13,9 +14,7 @@ namespace AtlaJWT.Domain.Entities
         }
 
         public UserInfo(UserInfo userInfo) => IsValid(userInfo);
-        public string UserName { get; set ; }
         public string Role { get; set; }
-        public string Password { get; set; }
 
         public override void IsValid(Entity user)
         {

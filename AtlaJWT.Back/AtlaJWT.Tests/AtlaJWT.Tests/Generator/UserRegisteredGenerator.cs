@@ -17,22 +17,22 @@ namespace AtlaJWT.Tests.Generator
         {
             yield return new object[]
            {
-                new UserRegistered {Id = 11, Age = 10, IdUserInfo = 11, Name = "Name", Password = "321"},
+                new UserRegistered {Id = 11, Age = 10, IdUserInfo = 11, UserName = "Name", Password = "321"},
            };
 
             yield return new object[]
            {
-                new UserRegistered {Id = 12, Age = 10, IdUserInfo = 12, Name = "Carlos", Password = "3214"},
+                new UserRegistered {Id = 12, Age = 10, IdUserInfo = 12, UserName = "Carlos", Password = "3214"},
            };
 
             yield return new object[]
            {
-                new UserRegistered {Id = 13, Age = 11, IdUserInfo = 13, Name = "Gabriel", Password = "3211"},
+                new UserRegistered {Id = 13, Age = 11, IdUserInfo = 13, UserName = "Gabriel", Password = "3211"},
            };
 
             yield return new object[]
            {
-                new UserRegistered {Id = 14, Age = 12, IdUserInfo = 14,  Name = "Lacerda", Password = "3212"},
+                new UserRegistered {Id = 14, Age = 12, IdUserInfo = 14,  UserName = "Lacerda", Password = "3212"},
            };
         }
 
@@ -44,7 +44,7 @@ namespace AtlaJWT.Tests.Generator
         {
             yield return new object[]
            {
-                new UserRegistered {Id = 11, IdUserInfo = 11, Age = 10, Name = "", Password = ""},
+                new UserRegistered {Id = 11, IdUserInfo = 11, Age = 10, UserName = "", Password = ""},
            };
         }
     }

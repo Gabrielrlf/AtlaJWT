@@ -59,14 +59,16 @@ namespace AtlaJWT.Service
 
         public Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered, UserInfo oldUser)
         {
+            UpdatePropertyUserRegistered(oldUser, userRegistered);
             var result = _userRepository.UpdateUserRegistered(userRegistered);
+            result.Password = string.Empty;
             return Task.FromResult(result);
         }
 
 
         public Task<UserInfo> UpdateUserInfo(UserRegistered userRegistered)
         {
-            if (IsExistingUserName(userRegistered.Name))
+            if (IsExistingUserName(userRegistered.UserName))
                 throw new UserException("Nome de usuário já existente!");
 
             var oldUser = _userRepository.GetUserInfoById(userRegistered.IdUserInfo);
@@ -139,7 +141,8 @@ namespace AtlaJWT.Service
             return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDesc));
         }
 
-        private void UpdatePropertyUserInfo(UserInfo userInfo, UserRegistered userRegistered) => userInfo.UserName = userRegistered.Name;
+        private void UpdatePropertyUserInfo(UserInfo userInfo, UserRegistered userRegistered) => userInfo.UserName = userRegistered.UserName;
+        private void UpdatePropertyUserRegistered(UserInfo userInfo, UserRegistered userRegistered) => userRegistered.Password = userInfo.Password;
 
         public void ValidateUserName(string name)
         {

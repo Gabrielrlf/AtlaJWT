@@ -6,7 +6,7 @@ import req from '../../services/req';
 
 class ModalInsertUser extends React.Component {
     state = {
-        name: "",
+        userName: "",
         password: "",
         age: ""
     }
@@ -14,15 +14,15 @@ class ModalInsertUser extends React.Component {
     ///Método que faz a inserção do usuário.
     insertUser = () =>
     {
-        const { name, password, age} = this.state;
+        const { userName, password, age} = this.state;
         
-        if(validateFields(name, age, password))
+        if(validateFields(userName, age, password))
         {
             return;
         }
             
         const obj = {
-            name, 
+            userName, 
             password,
             age
         }
@@ -55,8 +55,8 @@ class ModalInsertUser extends React.Component {
                         id="user"
                         name="user"
                         placeholder="Usuário"
-                        value={this.state.name}
-                        onChange={(e) => this.setState({ name: e.target.value })}
+                        value={this.state.userName}
+                        onChange={(e) => this.setState({ userName: e.target.value })}
                     />
 
                     <Label>Idade</Label>

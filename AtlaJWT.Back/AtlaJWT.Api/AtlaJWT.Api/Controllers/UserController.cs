@@ -33,7 +33,7 @@ namespace AtlaJWT.Api.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost("Remove/{id}")]
+        [HttpDelete("Remove/{id}")]
         public async Task<ActionResult<bool>> RemoveUser(int id)
         {
             try
@@ -53,7 +53,7 @@ namespace AtlaJWT.Api.Controllers
         {
             try
             {
-                _userService.ValidateUserName(userRegistered.Name);
+                _userService.ValidateUserName(userRegistered.UserName);
                 await _userService.CreateUserInfo(userRegistered);
                 var result = await _userService.CreateUserRegistered(userRegistered);
                 return Ok(result);
@@ -64,13 +64,13 @@ namespace AtlaJWT.Api.Controllers
             }
         }
 
-        [AllowAnonymous]
-        [HttpPost("Update")]
+        [Authorize(Roles = "Admin, User")]
+        [HttpPut("Update")]
         public async Task<ActionResult<UserToken>> UpdateRegister([FromBody] UserRegistered userRegistered)
         {
             try
             {
-                _userService.ValidateUserName(userRegistered.Name);
+                _userService.ValidateUserName(userRegistered.UserName);
                 var userInfo = await _userService.UpdateUserInfo(userRegistered);
                 var result = await _userService.UpdateUserRegistered(userRegistered, userInfo);
                 return Ok(result);

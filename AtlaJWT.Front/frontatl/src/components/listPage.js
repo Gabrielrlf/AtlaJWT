@@ -95,13 +95,13 @@ class ListPage extends React.Component {
                 onHide={() => this.setState({ showModal: !this.state.showModal })}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Usuário {userpick.name} </Modal.Title>
+                    <Modal.Title>Usuário {userpick.userName} </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <h1>Informações</h1>
                     <ul>
                         <ol>Id: {userpick.id} </ol>
-                        <ol>Name: {userpick.name} </ol>
+                        <ol>Name: {userpick.userName} </ol>
                         <ol>Idade: {userpick.age} </ol>
                     </ul>
                 </Modal.Body>

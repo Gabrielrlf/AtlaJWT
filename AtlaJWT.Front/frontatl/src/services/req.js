@@ -27,7 +27,7 @@ class Req {
 
     updateUserRegistered = (obj) => {
         return axios({
-            method: 'post',
+            method: 'put',
             url: `${url}api/User/Update`,
             data: JSON.stringify(obj),
             headers: {
@@ -52,7 +52,7 @@ class Req {
 
     removeUserRegistered = (id) => {
         return axios({
-            method: 'post',
+            method: 'delete',
             url: `${url}api/User/Remove/${id}`,
             headers: {
                 'Content-Type': "application/json",

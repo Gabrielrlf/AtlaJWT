@@ -24,7 +24,7 @@ class ModalEditUser extends React.Component {
         const obj = {
             "id": this.props.user.id,
             "idUserInfo": this.props.user.idUserInfo,
-            "name": userName,
+            "userName": userName,
             "age": age
         }
 
@@ -48,7 +48,7 @@ class ModalEditUser extends React.Component {
         if (this.props.user !== undefined) {
             this.setState({
                 showModal: this.props.showModalEdit,
-                userName: this.props.user.name,
+                userName: this.props.user.userName,
                 age: this.props.user.age
             })
         }

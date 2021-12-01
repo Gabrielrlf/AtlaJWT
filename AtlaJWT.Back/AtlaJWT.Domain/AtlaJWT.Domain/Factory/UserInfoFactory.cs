@@ -16,7 +16,7 @@ namespace AtlaJWT.Domain.Factory
         {
             return new UserInfo()
             {
-                UserName = userRegistered.Name,
+                UserName = userRegistered.UserName,
                 Password = CryptPasword(userRegistered.Password),
                 Role = "User"
             };

@@ -79,7 +79,7 @@ namespace AtlaJWT.Infra.Repositories
             {
                 using (ServiceRepository<UserRegistered> req = new ServiceRepository<UserRegistered>())
                 {
-                    return req.List().Where(x => x.Name == userInfo.UserName && x.Password == userInfo.Password).FirstOrDefault();
+                    return req.List().Where(x => x.UserName == userInfo.UserName && x.Password == userInfo.Password).FirstOrDefault();
                 }
             }
             catch (SqliteException ex)
