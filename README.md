@@ -44,6 +44,7 @@ Copie o Token (após as aspas e até o final antes das aspas).
 }
 ```
 Utilize como base o JSON acima e então, alterando as propriedades para o seu desejado, efetue a criação. O retorno deve ser similar:
+
 ```JSON
 {
     "idUserInfo": 13,
@@ -53,6 +54,7 @@ Utilize como base o JSON acima e então, alterando as propriedades para o seu de
     "password": ""
 }
 ```
+
 ### 1.2 GetAll
 Esse método é independente de estar ou não autenticado. Então, você pode efetuar testes com o token ou não.
 Para utiliza-lo, passe o endereço: https://localhost:44382/api/User/GetAll
@@ -98,11 +100,46 @@ Troque o ID pelo ID gerado no json acima, efetue a deleção e o retorno deverá
 
 
 FRONT-END
-//A FAZER
+Para startar o frontend, tem um README melhor resumido na pasta do front, <a href="https://github.com/Gabrielrlf/AtlaJWT/tree/master/AtlaJWT.Front/frontatl#readme"> clique aqui</a> qualquer coisa.
+Acesse a página através do seu localhost, a porta será a 3000, independente do meio de startar.
 
+### 2.0 Login
+![imagem_2021-12-01_150804](https://user-images.githubusercontent.com/49160989/144289833-1020a3f6-7a56-4efa-be60-48ab5f88761a.png)
+
+Essa é a página de login, efetue o primeiro login colocando o usuário Administrador e a senha: senha123
+
+
+### 2.1 Inserir
+![imagem_2021-12-01_151853](https://user-images.githubusercontent.com/49160989/144291336-58bc2d9b-3af1-445c-8cf9-746017daae68.png)
+
+Para inserir, clique no botão com o respectivo nome e preencha os campos.
+
+![imagem_2021-12-01_151949](https://user-images.githubusercontent.com/49160989/144291465-c2828f08-c84e-4949-8b77-749e101615eb.png)
+Após clicar em salvar, ele irá inserir e dar reload na lista dos usuários.
+
+### 2.2 Detalhes | 2.3 Edição | 2.4 Deleção
+Ao clicar na linha do usuário desejado, vai abrir um modal de detalhes com botões de edição 
+
+![imagem_2021-12-01_152302](https://user-images.githubusercontent.com/49160989/144291994-6db8e78f-863c-4620-b8bd-ab2f41cd3f77.png)
+
+Para editar, siga os mesmos passos do 2.1, vale lembrar quê <b> Usuário/Idade não pode ser nulo/em branco, o usuário não pode ter menos de 3 caracteres </b>
+
+### Alguns pontos ###
+ 
+Clique em sair e logue com algum usuário que você cadastrou, você irá perceber que somente conseguirá ver os detalhes na hora que clicar sobre o teu usuário, também vale ressaltar que só conseguirá ver nome e idade.
+
+Para finalizar, deslogue e clique em list, irá aparecer todos os nomes dos usuários cadastrados
+
+###
 
 ## Testes Unitários 
 Foi utilizado o xUnit para desenvolver os testes unitários, todas as explicações de cada teste estão no summary.
+
+
+## Pattern
+O pattern que eu escolhi utilizar foi o Factory Method, pois além de desacoplar a instância do UserInfo, consigo criar o meu usuário sem tê-lo que ficar instânciando toda hora.
+Além também de aderir ao OCP e ao SRP.
+
 
 ## Tecnologias utilizadas
 
