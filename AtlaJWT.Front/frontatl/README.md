@@ -1,4 +1,5 @@
-# Para rodar o front-end, há duas maneiras: Docker (adicionei um arquivo docker-compose no front)
+# Para rodar o front-end, há duas maneiras:
+
 
 <h1>Docker </h1>
 Caso tenha o comando instalado, abra seu CMD e digite: <br> cd ./{caminho_para_qual_você_clonou_o_repositorio}</br>
