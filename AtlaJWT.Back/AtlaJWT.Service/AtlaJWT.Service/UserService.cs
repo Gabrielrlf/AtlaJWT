@@ -60,7 +60,6 @@ namespace AtlaJWT.Service
         public Task<UserRegistered> UpdateUserRegistered(UserRegistered userRegistered, UserInfo oldUser)
         {
             var result = _userRepository.UpdateUserRegistered(userRegistered);
-
             return Task.FromResult(result);
         }
 

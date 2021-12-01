@@ -4,9 +4,15 @@
         <name>AtlaJWT.Tests</name>
     </assembly>
     <members>
-        <member name="M:AtlaJWT.Tests.Generator.UserInfoGenerator.GetDataUserInfoPass">
+        <member name="M:AtlaJWT.Tests.Generator.UserInfoGenerator.GetDataUserInfoFail">
             <summary>
             Deve retornar usuário falho
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtlaJWT.Tests.Generator.UserInfoGenerator.GetDataUserInfoPass">
+            <summary>
+            
             </summary>
             <returns></returns>
         </member>
@@ -26,7 +32,7 @@
             <summary>
             Deve retornar erro caso a string seja nulo/em branco.
             </summary>
-            <param name="name"></param>
+            <param>not contains</param>
         </member>
         <member name="M:AtlaJWT.Tests.UserInfoCreatorTest.Should_ThrowException_EncryptPassword(AtlaJWT.Domain.Entities.UserRegistered)">
             <summary>
@@ -42,15 +48,34 @@
         </member>
         <member name="M:AtlaJWT.Tests.UserServiceTest.#ctor">
             <summary>
-            
+            No construtor eu adiciono um token em memória e faço instância do mock das classes que irei utilizar.
             </summary>
         </member>
-        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegiserNewUser(AtlaJWT.Domain.Entities.UserRegistered)">
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_Login_ShouldReturnTokenJWT(AtlaJWT.Domain.Entities.UserInfo)">
+            <summary>
+            Deve retornar um token válido
+            <paramref name="userInfo"/>
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegisterNewUser_ShouldReturnExceptionByUserExisting(AtlaJWT.Domain.Entities.UserRegistered)">
+            <summary>
+            deve estourar uma exceção ao perceber que o usuário existe.
+            <paramref name="userRegistered"/>
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_RegisterNewUser_ShouldReturnUserInfoType(AtlaJWT.Domain.Entities.UserRegistered)">
+            <summary>
+            Deve retornar um usuário do tipo UserInfo ao registar.
+            <paramref name="userRegistered"/>
+            </summary>
+        </member>
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_Update_ShouldReturnUserInfoType(AtlaJWT.Domain.Entities.UserRegistered)">
             <summary>
             
             </summary>
+            <param name="userRegistered"></param> 
         </member>
-        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_LoginUser(AtlaJWT.Domain.Entities.UserInfo)">
+        <member name="M:AtlaJWT.Tests.UserServiceTest.Post_Login_ShouldReturnException(AtlaJWT.Domain.Entities.UserInfo)">
             <summary>
             
             </summary>

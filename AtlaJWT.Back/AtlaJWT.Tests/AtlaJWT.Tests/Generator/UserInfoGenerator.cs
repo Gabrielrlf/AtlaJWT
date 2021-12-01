@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AtlaJWT.Tests.Generator
 {
-    class UserInfoGenerator
+    public class UserInfoGenerator
     {
 
         /// <summary>
@@ -20,6 +20,26 @@ namespace AtlaJWT.Tests.Generator
            {
                 new UserInfo {Id = 11, UserName = "Adminsdw", Password = "testea123"},
            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<object[]> GetDataUserInfoPass()
+        {
+            yield return new object[]
+           {
+                new UserInfo {Id = 11, UserName = "Carlos", Password = "nata"},
+           };
+            yield return new object[]
+           {
+                new UserInfo {Id = 12, UserName = "MArcos", Password = "nata"},
+           };
+            yield return new object[]
+            {
+                new UserInfo {Id = 13, UserName = "Camila", Password = "nata"},
+            };
         }
     }
 }

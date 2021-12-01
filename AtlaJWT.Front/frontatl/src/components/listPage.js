@@ -107,7 +107,7 @@ class ListPage extends React.Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={() => this.setState({ showModalEdit: !this.state.showModalEdit })}>Editar</Button>
-                    <Button variant="danger" onClick={() => this.removeUser()}>Deletar</Button>
+                    {this.Role === "Admin" ?<Button variant="danger" onClick={() => this.removeUser()}>Deletar</Button> : null}
                 </Modal.Footer>
             </Modal>
         )
